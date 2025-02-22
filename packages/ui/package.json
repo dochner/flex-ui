@@ -1,0 +1,53 @@
+{
+  "name": "@dochner/flex-ui",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js",
+      "require": "./lib/index.umd.js"
+    },
+    "./components": "./lib/components/index.js",
+    "./components/#/*": "./lib/components/#/*.js",
+    "./composables/*": "./lib/composables/*.js",
+    "./plugins/*": "./lib/plugins/*.js",
+    "./fonts/*": "./lib/fonts/*",
+    "./utils/*": "./lib/utils/*.js"
+  },
+  "main": "lib/index.umd.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "*.d.ts",
+    "README.md",
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "dev": "npm run generate && vite build --watch",
+    "build": "npm run generate && vite build",
+    "preview": "vite preview",
+    "generate": "npm run gen-version",
+    "gen-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.vitest.json --composite false",
+    "gen-types:watch": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.vitest.json --composite false --watch",
+    "gen-version": "node .scripts/gen-version.js",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.3.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.20.1",
+    "eslint-plugin-format": "^1.0.1",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vue-tsc": "^2.2.0"
+  }
+}
