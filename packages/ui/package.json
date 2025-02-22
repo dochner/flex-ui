@@ -3,6 +3,14 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "homepage": "https://github.com/dochner/flex-ui",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dochner/flex-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dochner/flex-ui/issues"
+  },
   "sideEffects": false,
   "exports": {
     ".": {
@@ -33,21 +41,33 @@
     "generate": "npm run gen-version",
     "gen-types": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.vitest.json --composite false",
     "gen-types:watch": "vue-tsc --declaration --emitDeclarationOnly -p tsconfig.vitest.json --composite false --watch",
-    "gen-version": "node .scripts/gen-version.js",
+    "gen-version": "node .scripts/gen-version.cjs",
     "typecheck": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix"
   },
+  "peerDependencies": {
+    "vue": ">= 3.2.0"
+  },
   "dependencies": {
+    "@tanstack/vue-table": "^8.21.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "reka-ui": "^2.0.0",
+    "tailwind-merge": "^3.0.2",
     "vue": "^3.5.13"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.3.0",
+    "@tsconfig/node22": "^22.0.0",
+    "@types/node": "^22.13.5",
     "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue-jsx": "^4.1.1",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.20.1",
     "eslint-plugin-format": "^1.0.1",
     "typescript": "~5.7.2",
     "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.0",
     "vue-tsc": "^2.2.0"
   }
 }
