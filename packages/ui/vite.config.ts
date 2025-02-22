@@ -44,6 +44,7 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
       },
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: [
@@ -51,6 +52,7 @@ export default defineConfig({
         ...Object.keys(pkg.peerDependencies ?? {}),
       ],
       output: {
+        inlineDynamicImports: false,
         // Don't rely on preserveModules
         // It creates a lot of unwanted files because of the multiple sections of SFC files
         manualChunks: (moduleId, meta) => {
