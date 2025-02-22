@@ -44,7 +44,7 @@ export default defineConfig({
       entry: {
         index: resolve(__dirname, 'src/index.ts'),
       },
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
     rollupOptions: {
       external: [
